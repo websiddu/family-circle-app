@@ -3,7 +3,7 @@
     <div class="main-frame">
       <div class="main-frame-bg" ng-dblclick="showGallery()">
         <div class="frame">
-        <ion-scroll direction="x">
+        <ion-scroll direction="x" delegate-handle="frame-scroll">
           <div class="row">
           <div ng-if="!framepictures.length" class="frame-empty">
             <img src="img/empty_phone_frame.png">
@@ -83,7 +83,7 @@
   <div class="take-pic" ng-click="takePicture(true)">
 
   </div>
-  <div class="pic-gal" ng-click="openGallerPic()">
+  <div class="pic-gal" ng-click="showIdeaGallery()">
   </div>
   <div class="close-button" ng-click="hideIdeas()">
 

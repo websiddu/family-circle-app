@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, Pictures, $cordovaCamera, FramePictures, $cordovaImagePicker, $cordovaCapture, UploadService, $sce) {
+.controller('DashCtrl', function($scope, Pictures, $cordovaCamera, FramePictures, $cordovaImagePicker, $cordovaCapture, UploadService, $sce, $ionicScrollDelegate) {
 document.addEventListener("deviceready", function() {
   $scope.pictures = Pictures;
   $scope.framepictures = FramePictures;
@@ -91,8 +91,8 @@ document.addEventListener("deviceready", function() {
           .then(function(ref) {
             $scope.hideModel();
             $cordovaCamera.cleanup();
+            $ionicScrollDelegate.$getByHandle('frame-scroll').scrollTo(10000, 0, true);
           });
-
 
       },
       function(err) {
@@ -143,28 +143,61 @@ document.addEventListener("deviceready", function() {
 
   }
 
+
+  $scope.showIdeaGallery = function() {
+    var ideaoptions = {
+      maximumImagesCount: 1,
+      width: 800,
+      height: 800,
+      quality: 20
+    };
+
+    $cordovaImagePicker.getPictures(ideaoptions)
+      .then(function(results) {
+        for (var i = 0; i < results.length; i++) {
+          var imgData = results[i];
+
+          img = {
+            url: results[i]
+          }
+
+        var imageObj = {
+          name: 'Untitled',
+          type: 'images/jpg',
+          fullPath: results[i],
+          url: results[i],
+          isVideo: false
+        }
+        $scope.showIdeas = false;
+        $scope.showModal = true;
+        $scope.showOverlay = true;
+
+        $scope.showPic = imageObj;
+
+        }
+      }, function(error) {
+        // error getting photos
+      });
+
+  }
+
   $scope.uploadVideo = function() {
 
     var options = { limit: 1, duration: 15 };
 
     $cordovaCapture.captureVideo(options).then(function(videoData) {
-      UploadService.uploadMedia(videoData[0]).then(
-        function(result) {
-          var url = result.secure_url || '';
-          var vid = {
-            url: url,
-            isVideo: true
-          }
-          $scope.pictures.$add(vid).then(function(ref) {});
-          $scope.showModal = true;
-          $scope.showOverlay = true;
-          $scope.showPic = vid
-          $cordovaCamera.cleanup();
-        },
-        function(err) {
-          $cordovaCamera.cleanup();
-        });
 
+        var imageObj = {
+          name: videoData[0].name,
+          type: videoData[0].type,
+          fullPath: videoData[0].fullPath,
+          url: videoData[0].fullPath,
+          isVideo: true
+        }
+
+        $scope.showModal = true;
+        $scope.showOverlay = true;
+        $scope.showPic = imageObj;
 
     }, function(err) {
       // An error occurred. Show a message to the user
@@ -178,6 +211,8 @@ document.addEventListener("deviceready", function() {
     $scope.showOverlay = false;
     $scope.showIdeas = false;
 
+    $scope.showModal = true;
+    $scope.showOverlay = true;
     $cordovaCamera.getPicture(options)
       .then(function(imageData) {
 
@@ -189,9 +224,7 @@ document.addEventListener("deviceready", function() {
           isVideo: false
         }
 
-        // $scope.pictures.$add(pic).then(function(ref) {});
-        $scope.showModal = true;
-        $scope.showOverlay = true;
+
         $scope.showPic = imageObj;
 
       }, function(err) {

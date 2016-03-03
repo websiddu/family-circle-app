@@ -8,8 +8,6 @@
       Siddhartha Gudipati
     </author>
   <content src="index.html"/>
-  <access origin="*"/>
-  <allow-navigation href="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -42,6 +40,12 @@
     <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
+    <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
+    <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
+    <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
+    <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
+    <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
   </platform>
   <platform name="ios">
     <splash src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
@@ -55,4 +59,10 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
+  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+  <access origin="*"/>
+  <allow-intent href="*"/>
+  <allow-navigation href="file://*/*"/>
+  <allow-navigation href="http://*/*"/>
+  <allow-navigation href="https://*/*"/>
 </widget>
