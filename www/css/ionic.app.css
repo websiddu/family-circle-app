@@ -9904,6 +9904,11 @@ button.send {
   padding: 15px 10px 20px;
   color: #999;
   line-height: 1.44; }
+  .text-caption img {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    vertical-align: middle; }
 
 .frame-video {
   position: absolute;

@@ -83,8 +83,9 @@ document.addEventListener("deviceready", function() {
           isVideo: pic.isVideo,
           isIdea: pic.isIdea || false,
           time: Date.now(),
-          caption: document.querySelector('.input-text')
-            .value || null
+          author: 'Penny',
+          author_img: 'https://s3.amazonaws.com/uifaces/faces/twitter/allisongrayce/128.jpg',
+          caption: document.querySelector('.input-text').value || null
         }
 
         $scope.framepictures.$add(new_img)
