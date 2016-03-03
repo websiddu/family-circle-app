@@ -1,0 +1,12 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "dependencies": {
+    "ion-gallery": "^0.1.13",
+    "cloudinary_ng": "^0.2.0",
+    "ng-file-upload": "^12.0.1"
+  }
+}

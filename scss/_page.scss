@@ -1,0 +1,272 @@
+body {
+  font-family: 'Proxima Nova';
+}
+
+.main-frame {
+  padding: 2px;
+  height: 300px;
+}
+
+.main-frame-bg {
+  background: url('../img/frame.png') no-repeat center center;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+}
+
+.bar-stable.bar.bar-header {
+  background: #4CAF50;
+  box-shadow: 0 1px 8px rgba(0,0,0,.3);
+  height: 50px;
+  .title {
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+
+.actions {
+  background: #E0E0E0;
+  padding: 0;
+  margin: 0 -20px;
+  .action {
+    line-height: 26px;
+    text-align: center;
+    img {
+      height: 35px;
+      vertical-align: middle;
+    }
+    span {
+
+    }
+  }
+}
+
+.gallery {
+  .picture {
+    background: #fff;
+    height: 80px;
+    box-shadow: 0 0 5px #888;
+    background: #fff url('http://c2.staticflickr.com/6/5039/14304928241_19a493e225_c.jpg') center center no-repeat;;
+    background-size: cover;
+    position: relative;
+  }
+
+  .picture_frame {
+    padding: 10px;
+    position: relative;
+    transition: transform 0.33s ease-in-out;
+    &:after {
+      top: 10px;
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 10px;
+      border: solid 5px #fff;
+      border-bottom: solid 15px #fff;
+    }
+  }
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+}
+
+.imagemodal {
+  top: 80px;
+  left: 20px;
+  right: 20px;
+  position: absolute;
+  background: #fff;
+
+  .l-img {
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px;
+  }
+}
+
+input.input-text {
+  padding: 10px;
+  font-size: 19px;
+  height: 37px;
+  border-bottom: solid 1px #ddd;
+  margin: 0px 16px 28px;
+  width: 90%;
+
+  font-size: 20px;
+  margin: 20px 15px 18px;
+}
+
+
+button.send {
+  border: 0;
+  background: url("../img/send.svg") no-repeat;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 18px;
+  bottom: 30px;
+}
+
+
+.main-frame-bg {
+  position: relative;
+}
+
+.frame {
+
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 80px;
+
+  .main-frame-pic {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 33%;
+    -ms-flex: 0 0 33%;
+    flex: 0 0 33%;
+    max-width: 33%;
+    margin: 10px;
+  }
+
+  .picture {
+    background: #fff;
+    height: 120px;
+    box-shadow: 0 0 5px #888;
+    background: #fff url('http://c2.staticflickr.com/6/5039/14304928241_19a493e225_c.jpg') center center no-repeat;;
+    background-size: cover;
+    position: relative;
+  }
+
+  .picture_frame {
+    position: relative;
+    transition: transform 0.33s ease-in-out;
+    &:after {
+      top: 0;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0;
+      border: solid 7px #fff;
+      border-bottom: solid 20px #fff;
+    }
+  }
+
+}
+
+.ideamodal {
+  top: 80px;
+  left: 20px;
+  right: 20px;
+  position: absolute;
+  // background: #fff;
+
+  img {
+    width: 100%;
+  }
+}
+
+.take-pic {
+  position: absolute;
+  background: transparent;
+  top: 165px;
+  left: 48px;
+  width: 100px;
+  height: 100px;
+}
+
+.pic-gal {
+  position: absolute;
+  background: transparent;
+  top: 166px;
+  left: 172px;
+  height: 100px;
+  width: 100px;
+}
+
+.close-button {
+  position: absolute;
+  position: absolute;
+    top: 0;
+    height: 29px;
+    width: 30px;
+    right: 0;
+}
+
+.text-caption {
+  font-size: 20px;
+  padding: 15px 10px 20px;
+  color: #999;
+  line-height: 1.44;
+}
+
+.frame-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+
+  video {
+    max-height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+.l-video {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 350px;
+  overflow: hidden;
+  background: #fff;
+  padding-top: 15px;
+  video {
+    width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+}
+
+.frame-empty {
+  img {
+    width: 80%;
+    margin-top: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.fade.ng-enter {
+  transition: 0.33s linear all;
+  opacity: 0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+  opacity: 1;
+}

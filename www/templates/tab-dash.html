@@ -1,0 +1,94 @@
+<ion-view view-title="Family Circle">
+  <ion-content class="padding">
+    <div class="main-frame">
+      <div class="main-frame-bg" ng-dblclick="showGallery()">
+        <div class="frame">
+        <ion-scroll direction="x">
+          <div class="row">
+          <div ng-if="!framepictures.length" class="frame-empty">
+            <img src="img/empty_phone_frame.png">
+          </div>
+          <div class="main-frame-pic" ng-repeat="pic in framepictures" ng-click="openModal(pic)">
+            <div class="picture_frame">
+              <div class="picture" style="background-image: url('{{pic.url}}');"></div>
+              <div class="frame-video" ng-if="pic.isVideo">
+                <video autoplay="true" loop='true' controls muted>
+                  <source ng-src="{{trustSrc(pic.url)}}"type="video/mp4">
+                </video>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </ion-scroll>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="row">
+        <div class="col">
+          <div class="action" ng-click="takePicture()">
+            <img src="img/camera.svg" alt="">
+            <span>PICTURE</span>
+          </div>
+        </div>
+        <div class="col">
+          <div ng-click="uploadVideo()" class="action">
+            <img src="img/video.svg">
+            <span>VIDEO</span>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="action" ng-click="showIdeasModel()">
+            <img src="img/idea.svg" alt="">
+            <span>IDEA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="gallery">
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col-25" ng-repeat="pic in pictures_gal" ng-click="openModal(pic)">
+          <div class="picture_frame" style="transform: rotate({{Math.floor(Math.random()*7)}}deg)">
+            <div class="picture" style="background-image: url('{{pic.url}}');" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+<div class="overlay fade" ng-if="showOverlay" ng-click="hideModel()"></div>
+<div class="imagemodal fade" ng-if="showModal">
+  <div class="l-img" style="background-image: url({{showPic.url}});" ng-if="!showPic.isVideo"></div>
+  <div class="l-video" ng-if="showPic.isVideo">
+    <video autoplay="true" loop='true' controls muted>
+      <source ng-src="{{trustSrc(showPic.url)}}"type="video/mp4">
+    </video>
+  </div>
+  <div class="l-caption">
+    <form ng-submit="sendPicture(showPic)" ng-if="!showPic.caption">
+      <input type="text" class="input-text" ng-focus="true" ng-model="img_caption" autofocus placeholder="Say something nice...">
+      <button type="submit" class="send"></button>
+    </form>
+    <div class="text-caption" ng-if="showPic.caption">
+      {{showPic.caption}}
+    </div>
+
+  </div>
+</div>
+
+<div class="ideamodal fade" ng-if="showIdeas">
+  <img ng-src="img/idea-{{ideaIndex}}.png" alt="">
+  <div class="take-pic" ng-click="takePicture(true)">
+
+  </div>
+  <div class="pic-gal" ng-click="openGallerPic()">
+  </div>
+  <div class="close-button" ng-click="hideIdeas()">
+
+  </div>
+
+</div>
+
+</ion-view>
